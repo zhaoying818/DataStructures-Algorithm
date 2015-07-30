@@ -138,6 +138,24 @@ public class MyLinkedList {
 		return p2;
 	}
 	
+	/**
+	 * 非递归方法实现链表的翻转
+	 */
+	public void ReverseIteratively(Node head){
+		Node pReverseHead = head;
+		Node pNode = head;
+		Node pPrev = null;
+		while(pNode != null){
+			Node pNext = pNode.next;
+			if(pNext==null)
+				pReverseHead = pNode;
+			pNode.next = pPrev;
+			pPrev = pNode;
+			pNode = pNext;
+		}
+		this.head = pReverseHead;
+	}
+	
 	
 
 	public static void main(String[] args) {
