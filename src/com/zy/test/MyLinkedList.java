@@ -168,6 +168,21 @@ public class MyLinkedList {
 		}
 	}
 	
+	/**
+	 *  查找单链表中间结点
+	 *  设置两个指针，同时出发，一个步长为1，一个步长为2
+	 */
+	public Node SearchMidNode(Node head){
+		Node p1 = this.head;
+		Node p2 = this.head;
+		while(p2!=null && p2.next!=null && p2.next.next!=null){
+			p1 = p1.next;
+			p2= p2.next.next;
+		}
+		return p1;
+	}
+	
+	
 	
 
 	public static void main(String[] args) {
