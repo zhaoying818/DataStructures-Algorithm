@@ -30,7 +30,7 @@ public class MyLinkedList {
 		if(index<1 || index>length()){
 			return false;
 		}
-		
+		//删除链表第一个元素
 		if(index==1){
 			head= head.next;
 			return true;
@@ -98,6 +98,26 @@ public class MyLinkedList {
 		}
 	}
 	
+	/**
+	 * 通过双重循环遍历删除链表中重复的数据
+	 * @param head : 链表的头结点 
+	 */
+	public void deleDuplecate(Node head){
+		Node p = head;
+		while(p!=head){
+			Node q = p;
+			while(q.next!=null){
+				if(p.data==q.next.data){
+					q.next = q.next.next;
+				}
+				else
+					q = q.next;
+			}
+			p = p.next;
+		}
+	}
+	
+	
 	
 
 	public static void main(String[] args) {
@@ -111,6 +131,9 @@ public class MyLinkedList {
 		list.printList();
 		list.orderList();
 		System.out.println("After order:");
+		list.printList();
+		list.deleteNode(3);
+		System.out.println("delete a Node:");
 		list.printList();
 
 	}
