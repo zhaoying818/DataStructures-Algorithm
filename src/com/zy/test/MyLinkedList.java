@@ -117,6 +117,26 @@ public class MyLinkedList {
 		}
 	}
 	
+	/**
+	 * 查找单链表中的倒数第K个元素
+	 * 设置两个指针，一个先移动k-1步，然后同时移动，知道先前移动的为空(null)
+	 * @param head
+	 * @param k
+	 * @return
+	 */
+	public Node findElem(Node head, int k){
+		if(k<1 || k>this.length())
+			return null;
+		Node p1 = head;
+		Node p2 = head;
+		for(int i = 0;i<k-1;i++)//前移k-1步
+			p1 = p1.next;
+		while(p1!=null){
+			p1 = p1.next;
+			p2 = p2.next;
+		}
+		return p2;
+	}
 	
 	
 
