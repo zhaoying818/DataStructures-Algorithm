@@ -156,6 +156,18 @@ public class MyLinkedList {
 		this.head = pReverseHead;
 	}
 	
+	/**
+	 * 采用递归方法实现反向输出单链表（从尾到头）
+	 * 方法：每次访问到一个节点，县递归输出它后面的结点，在输出该结点自身
+	 * @param pListHead: 头结点
+	 */
+	public void printListReversely(Node pListHead){
+		if(pListHead!=null){
+			printListReversely(pListHead.next);
+			System.out.println(pListHead.data);
+		}
+	}
+	
 	
 
 	public static void main(String[] args) {
