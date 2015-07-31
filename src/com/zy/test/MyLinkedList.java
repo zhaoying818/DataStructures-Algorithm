@@ -182,6 +182,47 @@ public class MyLinkedList {
 		return p1;
 	}
 	
+	/**
+	 * 检测一个链表是否有环
+	 * @param head
+	 * @return
+	 */
+	public boolean isLoop(Node head){
+		Node fast = head;
+		Node slow = head;
+		if(fast==null){
+			return false;
+		}
+		while(fast!=null && fast.next!=null){
+			fast = fast.next.next;
+			slow = slow.next;
+			if(fast==slow){
+				return true;
+			}
+		}
+		return !(fast==null || fast.next==null);
+	}
+	//如果链表存在环，找到环的入口点
+	public Node findLoopPort(Node head){
+		Node slow = head;
+		Node fast = head;
+		while(fast!=null && fast.next!=null){
+			slow = slow.next;
+			fast = fast.next.next;
+			if(slow==fast)
+				break;
+		}
+		if(fast==null ||fast.next==null)
+			return null;
+		slow = head;
+		while(slow!=fast){
+			slow = slow.next;
+			fast = fast.next;
+		}
+		return slow;
+	}
+	
+	
 	
 	
 
