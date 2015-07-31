@@ -222,6 +222,21 @@ public class MyLinkedList {
 		return slow;
 	}
 	
+	/**
+	 * 不知道头结点的情况下删除指定结点
+	 * @param n:要删除的结点
+	 * @return: 删除成功，返回true；否则，返回false
+	 */
+	public boolean deleteNode(Node n){
+		if(n==null || n.next==null)
+			return false;
+		int tmp = n.data;
+		n.data = n.next.data;
+		n.next.data = tmp;
+		n.next = n.next.next;
+		return true;
+	}
+	
 	
 	
 	
