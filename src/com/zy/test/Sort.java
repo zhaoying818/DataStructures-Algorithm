@@ -50,12 +50,29 @@ public class Sort {
 			}
 		}
 	}
+	/**
+	 * BubbleSort 冒泡排序
+	 * @param a: 要排序的数组
+	 */
+	public static void BubbleSort(int[] a){
+		int i, j;
+		int len = a.length;
+		int tmp;
+		for(i=0;i<len-1;i++)
+			for(j=len-1;j>i;j--)
+				if(a[j]<a[j-1]){
+					tmp = a[j];
+					a[j] = a[j-1];
+					a[j-1] = tmp;
+				}
+	}
+	
 	
 	
 	
 	public static void main(String[] args){
 		int a[] = {36,25,48,12,25,65,43,57};
-		selectSort(a);
+		BubbleSort(a);
 		for(int i=0;i<a.length;i++){
 			System.out.print(a[i] + " ");
 		}
