@@ -22,13 +22,32 @@ public class OperationOfBit {
 		return m==0;
 	}
 	
+	/**
+	 * 求2进制数中1的个数
+	 */
+	public static int countOne(int n){
+		int count = 0;//用来计数
+		while(n>0){
+			if(n!=0){//判断最后一位是否为1
+				n = n&(n-1);
+				count++;
+			}	
+		}
+		return count;		
+	}
+	
 //	public static void main(String[] args){
 //		System.out.println("3乘以8(3乘以2的3次方)为: " +powerN(3, 3));
 //	}
 	
+//	public static void main(String[] args){
+//		System.out.println("4是2的n次方:" + isPower(4));
+//		System.out.println("5是2的n次方:" + isPower(5));
+//	}
+	
 	public static void main(String[] args){
-		System.out.println("4是2的n次方:" + isPower(4));
-		System.out.println("5是2的n次方:" + isPower(5));
+		System.out.println("7中1的个数:" + countOne(7));
+		System.out.println("8中1的个数:" + countOne(8));
 	}
 
 
