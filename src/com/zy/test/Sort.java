@@ -137,13 +137,37 @@ public class Sort {
 		sort(a, i+1, high);
 	}
 	
+	/**
+	 * shellSort Ï£¶ûÅÅÐò
+	 * @param a
+	 */
+	public static void shellSort(int[] a){
+		int len = a.length;
+		int i, j;
+		int h;
+		int tmp;
+		for(h=len/2;h>0;h=h/2){
+			for(i=h;i<len;i++){
+				tmp = a[i];
+				for(j=i-h;j>=0;j-=h){
+					if(tmp<a[j]){
+						a[j+h] = a[j];
+					}
+					else
+						break;
+				}
+				a[j+h] = tmp;
+			}
+		}
+	}
+	
 	
 	
 	
 	
 	public static void main(String[] args){
 		int a[] = {36,25,48,12,25,65,43,57};
-		quickSort(a);
+		shellSort(a);
 		for(int i=0;i<a.length;i++){
 			System.out.print(a[i] + " ");
 		}
