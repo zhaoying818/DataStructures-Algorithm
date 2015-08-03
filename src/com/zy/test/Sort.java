@@ -161,13 +161,41 @@ public class Sort {
 		}
 	}
 	
-	
-	
+	/**
+	 * maxHeapSort×î´ó¶ÑÅÅÐò
+	 * @param a
+	 */
+	public static void maxHeapSort(int[] a){
+		int i;
+		int len = a.length;
+		for(i=len/2-1;i>=0;i--)
+			adjustMaxHeap(a, i, len-1);
+		for(i=len-1;i>=0;i--){
+			int tmp = a[0];
+			a[0] = a[i];
+			a[i] = tmp;
+			adjustMaxHeap(a, 0, i-1);
+		}
+	}
+	public static void adjustMaxHeap(int[] a, int pos, int len){
+		int tmp;
+		int child;
+		for(tmp=a[pos];2*pos+1<=len;pos=child){
+			child = 2*pos + 1;
+			if(child<len && a[child]<a[child+1])
+				child++;
+			if(a[child]>tmp)
+				a[pos] = a[child];
+			else
+				break;	
+		}
+		a[pos] = tmp;
+	}
 	
 	
 	public static void main(String[] args){
 		int a[] = {36,25,48,12,25,65,43,57};
-		shellSort(a);
+		maxHeapSort(a);
 		for(int i=0;i<a.length;i++){
 			System.out.print(a[i] + " ");
 		}
