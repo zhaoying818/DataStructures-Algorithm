@@ -1,9 +1,9 @@
 package com.zy.test;
 
-public class MaxNum {
+public class Array_MaxNum {
 
 	public static void main(String[] args) {
-		MaxNum mn = new MaxNum();
+		Array_MaxNum mn = new Array_MaxNum();
 		int a[] = {0,16,2,3,4,5,10,7,8,9,23};
 		System.out.println(mn.maxNum(a,0));
 	}
